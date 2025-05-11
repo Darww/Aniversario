@@ -1,0 +1,193 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #fae1dd;
+    font-family: DM Serif Text, sans-serif;
+    margin: 0;
+}
+
+.contenedor {
+    position: relative;
+    margin-top: 90px; /*BAJAR EL CONTENEDOR DEL SOBRE*/
+}
+
+/* TAPA DEL SOBRE */
+.superior {
+    position: absolute;
+    border-left: 350px solid transparent;
+    border-right: 350px solid transparent;
+    border-top: 200px solid #f08080;
+    border-bottom: 160px solid transparent;
+    transition: transform .75s;
+    transform-origin: top;
+}
+
+/* CUERPO DE LA CARTA */
+.mensaje {
+    position: absolute;
+    padding: 1.5rem;
+    line-height: 1.5rem;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 22px;
+    background: #eae2b7;
+    width: 700px;
+    height: 440px; /**aqui modifico lo de abajo de la carta***/
+    z-index: -1;
+    overflow: auto;
+    transition: transform 0.75s ease-in-out;
+}
+
+/* BORDE DECORATIVO */
+.mensaje:before {
+    content: "";
+    border-style: dotted;
+    position: absolute;
+    top: 12px;
+    left: 12px; 
+    right: 12px; 
+    bottom: 12px;
+}
+
+/* TEXTO DENTRO DE LA CARTA */
+.mensaje p {
+    position: relative;
+    top: -10px;
+    font-size: 1.2rem;
+}
+
+/* SOBRE */
+.carta {
+    border-left: 350px solid #f8ad9d;
+    border-right: 350px solid #f4978e;
+    border-top: 200px solid transparent;
+    border-bottom: 240px solid #f8ad9d;
+}
+
+/* CORAZÓN */
+.bx {
+    position: absolute;
+    color: #f6406a;
+    top: 185px;
+    left: 325px;
+    font-size: 50px;
+    animation: palpitar 0.6s linear infinite;
+}
+
+.psorpresa {
+    margin-top: -10px;
+}
+
+/* BOTONES */
+.botones {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.boton {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff66b2, #ff4081);
+    background-size: 200% 200%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.boton:hover {
+    background-position: 100% 100%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ANIMACIÓN DE ABRIR */
+.abrir-superior {
+    transform: rotateX(180deg);
+}
+
+.abrir-mensaje {
+    transform: translateY(-250px); /*transicion para que el mensaje suba*/
+}
+
+.bx-rotada {
+    color: #f6406a;
+    animation: none; 
+}
+
+/*sobre con foto*/
+.fotos-y-sobre {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 0px;
+  flex-wrap: nowrap;
+  transform: translate(80px);
+}
+
+.foto-lateral {
+  width: 150px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 200px;/*BAJAR SOLO LAS FOTOS*/
+}
+
+.contenedor-y-botones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 750px;
+  margin-top: 100px; /*BAJAR TODO EL CONTENEDOR*/
+}
+
+
+/* EFECTO CORAZÓN */
+@keyframes palpitar {
+    0% {
+        transform: scale(1.07);
+    }
+    80% {
+        transform: scale(1.0);
+    }
+    100% {
+        transform: scale(1.08);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .mensaje {
+        width: 90vw;
+        height: 280px;
+        font-size: 1rem;
+    }
+
+    .mensaje:before {
+        bottom: 45px;
+    }
+
+    .mensaje p {
+        top: -15px;
+    }
+
+    .bx {
+        left: 45%;
+    }
+
+    .superior,
+    .carta {
+        border-left: 45vw solid transparent;
+        border-right: 45vw solid transparent;
+    }
+}
